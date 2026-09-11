@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AI Project Mentor</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<div class="blob"></div>
+
+<nav class="navbar">
+
+<div class="logo">
+CareerTwin AI
+</div>
+
+<div class="nav-links">
+
+<a href="home.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a href="skill-gap.html">Skill Gap</a>
+<a href="placement-readiness.html">Readiness</a>
+<a href="roadmap.html">Roadmap</a>
+<a href="projects.html">Projects</a>
+<a href="paid_courses.html">Paid Courses</a> 
+<a href="linkedin_opp.html">LinkedIn Opportunities</a>
+<a href="chatbot.html">AI Mentor</a>
+<button class="profile-btn" id="profileBtn">
+    ⓘ Profile
+</button>
+
+</div>
+
+</nav>
+
+<main>
+    <div class="project-mentor-container">
+
+        <div class="page-header">
+            <h1>AI Project Mentor 🤖</h1>
+            <p>
+                Get personalized project recommendations based on your
+                career goal and skill gaps.
+            </p>
+        </div>
+
+        <!-- Student Information -->
+        <div class="mentor-profile glass-card">
+            <h2>Your Career Profile</h2>
+
+            <div class="profile-info">
+                <div>
+                    <span>Target Role</span>
+                    <strong id="targetRole">Loading...</strong>
+                </div>
+
+                <div>
+                    <span>Skill Match</span>
+                    <strong id="skillMatch">Loading...</strong>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Generate Button -->
+        <div class="mentor-action">
+            <button onclick="generateProjects()">
+                Generate Personalized Projects 🚀
+            </button>
+        </div>
+
+
+        <!-- Recommended Projects -->
+        <div class="project-results">
+
+            <h2>Recommended Projects</h2>
+
+            <div id="projectList">
+                <div class="loading-message">
+                    Click the button above to get your personalized projects.
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</main>
+
+<script src="project-mentor.js"></script>
+</body>
+
+</html>

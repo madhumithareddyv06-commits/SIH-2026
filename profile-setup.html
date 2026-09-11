@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Your Career Twin</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="blob"></div>
+
+    <div class="profile-container">
+
+        <div class="profile-card">
+
+            <h1>Create Your Career Twin</h1>
+
+            <p>
+                Tell us about yourself to generate personalized career guidance.
+            </p>
+
+
+            <!-- Name -->
+            <input
+                type="text"
+                id="name"
+                placeholder="Full Name"
+            >
+
+
+            <!-- College -->
+            <input
+                type="text"
+                id="college"
+                placeholder="College Name"
+            >
+
+
+            <!-- Branch -->
+            <input
+                type="text"
+                id="branch"
+                placeholder="Branch"
+            >
+
+
+            <!-- CGPA -->
+            <input
+                type="number"
+                id="cgpa"
+                placeholder="CGPA"
+                step="0.1"
+                min="0"
+                max="10"
+            >
+
+
+            <!-- Semester -->
+            <input
+                type="number"
+                id="semester"
+                placeholder="Semester"
+                min="1"
+                max="12"
+            >
+
+
+            <!-- Credential & Contact Details -->
+            <h3>Credential & Contact Details</h3>
+
+
+            <!-- Email -->
+            <input
+                type="email"
+                id="email"
+                placeholder="Email Address"
+            >
+
+            <p id="emailStatus" class="credential-status"></p>
+
+
+            <!-- Phone -->
+            <input
+                type="text"
+                id="phone"
+                placeholder="10-digit Phone Number"
+                maxlength="10"
+            >
+
+            <p id="phoneStatus" class="credential-status"></p>
+
+
+            <!-- Student ID -->
+            <input
+                type="text"
+                id="studentId"
+                placeholder="Student ID"
+            >
+
+            <p id="studentIdStatus" class="credential-status"></p>
+
+
+            <!-- LinkedIn -->
+            <input
+                type="text"
+                id="linkedin"
+                placeholder="LinkedIn Profile URL"
+            >
+
+            <p id="linkedinStatus" class="credential-status"></p>
+
+
+            <!-- GitHub -->
+            <input
+                type="text"
+                id="github"
+                placeholder="GitHub Profile URL"
+            >
+
+            <p id="githubStatus" class="credential-status"></p>
+
+
+            <!-- Graduation Year -->
+            <input
+                type="number"
+                id="graduationYear"
+                placeholder="Graduation Year"
+            >
+
+            <p id="graduationStatus" class="credential-status"></p>
+
+
+            <!-- Dream Role -->
+            <select id="role" onchange="toggleCustomRole()">
+
+                <option value="">
+                    Select Dream Role
+                </option>
+
+                <option value="AI Engineer">
+                    AI Engineer
+                </option>
+
+                <option value="Data Scientist">
+                    Data Scientist
+                </option>
+
+                <option value="Machine Learning Engineer">
+                    Machine Learning Engineer
+                </option>
+
+                <option value="Software Engineer">
+                    Software Engineer
+                </option>
+
+                <option value="Cybersecurity Analyst">
+                    Cybersecurity Analyst
+                </option>
+
+                <option value="Product Manager">
+                    Product Manager
+                </option>
+
+                <option value="Other">
+                    Other
+                </option>
+
+            </select>
+
+
+            <!-- Custom Dream Role -->
+            <div
+                id="otherRoleContainer"
+                style="display:none; margin-top:15px;"
+            >
+
+                <input
+                    type="text"
+                    id="customRole"
+                    placeholder="Enter your dream role"
+                >
+
+            </div>
+
+
+            <!-- Current Skills -->
+            <h3>Current Skills</h3>
+
+            <div class="skills-checkbox">
+
+                <label>
+                    <input
+                        type="checkbox"
+                        value="Python"
+                    >
+                    Python
+                </label>
+
+
+                <label>
+                    <input
+                        type="checkbox"
+                        value="SQL"
+                    >
+                    SQL
+                </label>
+
+
+                <label>
+                    <input
+                        type="checkbox"
+                        value="Machine Learning"
+                    >
+                    Machine Learning
+                </label>
+
+
+                <label>
+                    <input
+                        type="checkbox"
+                        value="Java"
+                    >
+                    Java
+                </label>
+
+
+                <label>
+                    <input
+                        type="checkbox"
+                        value="Web Development"
+                    >
+                    Web Development
+                </label>
+
+
+                <label>
+                    <input
+                        type="checkbox"
+                        value="Data Structures"
+                    >
+                    Data Structures
+                </label>
+
+            </div>
+
+
+            <!-- Resume -->
+            <h3>Upload Resume</h3>
+
+            <input
+                type="file"
+                id="resumeUpload"
+                accept=".pdf,.doc,.docx"
+                onchange="showUploadMessage()"
+            >
+
+            <p id="uploadStatus"></p>
+
+
+            <!-- Create Career Twin -->
+            <button onclick="createProfile()">
+                Create My Career Twin
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <script>
+
+
+        /* ================================
+           OTHER DREAM ROLE
+        ================================= */
+
+        function toggleCustomRole() {
+
+            const roleSelect =
+                document.getElementById("role");
+
+            const otherRoleContainer =
+                document.getElementById("otherRoleContainer");
+
+            const customRole =
+                document.getElementById("customRole");
+
+
+            if (roleSelect.value === "Other") {
+
+                otherRoleContainer.style.display = "block";
+
+            }
+            else {
+
+                otherRoleContainer.style.display = "none";
+
+                customRole.value = "";
+
+            }
+
+        }
+
+
+
+        /* ================================
+           RESUME UPLOAD
+        ================================= */
+
+        function showUploadMessage() {
+
+            const resume =
+                document.getElementById("resumeUpload").files[0];
+
+            const status =
+                document.getElementById("uploadStatus");
+
+
+            if (!resume) {
+
+                status.innerText = "";
+
+                return;
+
+            }
+
+
+            const fileName =
+                resume.name.toLowerCase();
+
+
+            const allowed =
+                [".pdf", ".doc", ".docx"];
+
+
+            const valid =
+                allowed.some(function(extension) {
+
+                    return fileName.endsWith(extension);
+
+                });
+
+
+            if (valid) {
+
+                status.innerText =
+                    "✅ Valid resume format";
+
+                status.style.color =
+                    "#00ff9d";
+
+            }
+            else {
+
+                status.innerText =
+                    "❌ Only PDF, DOC and DOCX files are allowed";
+
+                status.style.color =
+                    "#ff6b6b";
+
+            }
+
+        }
+
+
+
+        /* ================================
+           CREATE PROFILE
+        ================================= */
+
+        function createProfile() {
+
+
+            /* Get basic details */
+
+            const userName =
+                document.getElementById("name").value.trim();
+
+
+            const college =
+                document.getElementById("college").value.trim();
+
+
+            const branch =
+                document.getElementById("branch").value.trim();
+
+
+            const cgpa =
+                document.getElementById("cgpa").value.trim();
+
+
+            const semester =
+                document.getElementById("semester").value.trim();
+
+
+
+            /* Dream Role */
+
+            const roleSelect =
+                document.getElementById("role").value;
+
+
+            const customRole =
+                document.getElementById("customRole").value.trim();
+
+
+            let dreamRole =
+                roleSelect;
+
+
+            if (roleSelect === "Other") {
+
+                if (customRole === "") {
+
+                    alert("Please enter your dream role.");
+
+                    document
+                        .getElementById("customRole")
+                        .focus();
+
+                    return;
+
+                }
+
+                dreamRole =
+                    customRole;
+
+            }
+
+
+
+            /* Credential details */
+
+            const email =
+                document
+                    .getElementById("email")
+                    .value
+                    .trim();
+
+
+            const phone =
+                document
+                    .getElementById("phone")
+                    .value
+                    .trim();
+
+
+            const studentId =
+                document
+                    .getElementById("studentId")
+                    .value
+                    .trim();
+
+
+            const linkedin =
+                document
+                    .getElementById("linkedin")
+                    .value
+                    .trim();
+
+
+            const github =
+                document
+                    .getElementById("github")
+                    .value
+                    .trim();
+
+
+            const graduationYear =
+                document
+                    .getElementById("graduationYear")
+                    .value
+                    .trim();
+
+
+
+            /* ================================
+               BASIC VALIDATION
+            ================================= */
+
+            if (userName === "") {
+
+                alert("Please enter your name.");
+
+                document
+                    .getElementById("name")
+                    .focus();
+
+                return;
+
+            }
+
+
+            if (college === "") {
+
+                alert("Please enter your college name.");
+
+                document
+                    .getElementById("college")
+                    .focus();
+
+                return;
+
+            }
+
+
+            if (branch === "") {
+
+                alert("Please enter your branch.");
+
+                document
+                    .getElementById("branch")
+                    .focus();
+
+                return;
+
+            }
+
+
+            if (
+                cgpa === "" ||
+                cgpa < 0 ||
+                cgpa > 10
+            ) {
+
+                alert("Please enter a valid CGPA between 0 and 10.");
+
+                document
+                    .getElementById("cgpa")
+                    .focus();
+
+                return;
+
+            }
+
+
+            if (
+                semester === "" ||
+                semester < 1 ||
+                semester > 12
+            ) {
+
+                alert("Please enter a valid semester.");
+
+                document
+                    .getElementById("semester")
+                    .focus();
+
+                return;
+
+            }
+
+
+            if (roleSelect === "") {
+
+                alert("Please select your dream role.");
+
+                document
+                    .getElementById("role")
+                    .focus();
+
+                return;
+
+            }
+
+
+
+            /* ================================
+               EMAIL VALIDATION
+            ================================= */
+
+            const emailPattern =
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+
+            if (!emailPattern.test(email)) {
+
+                showCredentialStatus(
+                    "emailStatus",
+                    "❌ Please enter a valid email address.",
+                    false
+                );
+
+                return;
+
+            }
+
+
+            showCredentialStatus(
+                "emailStatus",
+                "✅ Valid email address",
+                true
+            );
+
+
+
+            /* ================================
+               PHONE VALIDATION
+            ================================= */
+
+            const phonePattern =
+                /^[6-9][0-9]{9}$/;
+
+
+            if (!phonePattern.test(phone)) {
+
+                showCredentialStatus(
+                    "phoneStatus",
+                    "❌ Enter a valid 10-digit phone number.",
+                    false
+                );
+
+                return;
+
+            }
+
+
+            showCredentialStatus(
+                "phoneStatus",
+                "✅ Valid phone number",
+                true
+            );
+
+
+
+            /* ================================
+               STUDENT ID VALIDATION
+            ================================= */
+
+            const studentIdPattern =
+                /^[A-Za-z0-9]{5,20}$/;
+
+
+            if (!studentIdPattern.test(studentId)) {
+
+                showCredentialStatus(
+                    "studentIdStatus",
+                    "❌ Student ID must contain 5-20 letters or numbers.",
+                    false
+                );
+
+                return;
+
+            }
+
+
+            showCredentialStatus(
+                "studentIdStatus",
+                "✅ Valid student ID",
+                true
+            );
+
+
+
+            /* ================================
+               LINKEDIN VALIDATION
+            ================================= */
+
+            const linkedinPattern =
+                /^https?:\/\/(www\.)?linkedin\.com\/in\/[A-Za-z0-9_-]+\/?$/;
+
+
+            if (!linkedinPattern.test(linkedin)) {
+
+                showCredentialStatus(
+                    "linkedinStatus",
+                    "❌ Enter a valid LinkedIn profile URL.",
+                    false
+                );
+
+                return;
+
+            }
+
+
+            showCredentialStatus(
+                "linkedinStatus",
+                "✅ Valid LinkedIn profile",
+                true
+            );
+
+
+
+            /* ================================
+               GITHUB VALIDATION
+            ================================= */
+
+            const githubPattern =
+                /^https?:\/\/(www\.)?github\.com\/[A-Za-z0-9_-]+\/?$/;
+
+
+            if (!githubPattern.test(github)) {
+
+                showCredentialStatus(
+                    "githubStatus",
+                    "❌ Enter a valid GitHub profile URL.",
+                    false
+                );
+
+                return;
+
+            }
+
+
+            showCredentialStatus(
+                "githubStatus",
+                "✅ Valid GitHub profile",
+                true
+            );
+
+
+
+            /* ================================
+               GRADUATION YEAR
+            ================================= */
+
+            const currentYear =
+                new Date().getFullYear();
+
+
+            if (
+                graduationYear === "" ||
+                graduationYear < currentYear ||
+                graduationYear > currentYear + 6
+            ) {
+
+                showCredentialStatus(
+                    "graduationStatus",
+                    "❌ Enter a valid graduation year.",
+                    false
+                );
+
+                return;
+
+            }
+
+
+            showCredentialStatus(
+                "graduationStatus",
+                "✅ Valid graduation year",
+                true
+            );
+
+
+
+            /* ================================
+               SELECTED SKILLS
+            ================================= */
+
+            const selectedSkills = [];
+
+
+            document
+                .querySelectorAll(
+                    '.skills-checkbox input[type="checkbox"]:checked'
+                )
+                .forEach(function(checkbox) {
+
+                    selectedSkills.push(
+                        checkbox.value
+                    );
+
+                });
+
+
+
+            /* ================================
+               RESUME
+            ================================= */
+
+            const resume =
+                document
+                    .getElementById("resumeUpload")
+                    .files[0];
+
+
+            if (resume) {
+
+                const fileName =
+                    resume.name.toLowerCase();
+
+                const allowed =
+                    [".pdf", ".doc", ".docx"];
+
+                const valid =
+                    allowed.some(function(extension) {
+
+                        return fileName.endsWith(extension);
+
+                    });
+
+
+                if (!valid) {
+
+                    alert(
+                        "Please upload a PDF, DOC or DOCX resume."
+                    );
+
+                    return;
+
+                }
+
+            }
+
+
+
+            /* ================================
+               SAVE PROFILE DATA
+            ================================= */
+
+            localStorage.setItem(
+                "userName",
+                userName
+            );
+
+
+            localStorage.setItem(
+                "college",
+                college
+            );
+
+
+            localStorage.setItem(
+                "branch",
+                branch
+            );
+
+
+            localStorage.setItem(
+                "cgpa",
+                cgpa
+            );
+
+
+            localStorage.setItem(
+                "semester",
+                semester
+            );
+
+
+            localStorage.setItem(
+                "dreamRole",
+                dreamRole
+            );
+
+
+            localStorage.setItem(
+                "selectedSkills",
+                JSON.stringify(selectedSkills)
+            );
+
+
+            localStorage.setItem(
+                "email",
+                email
+            );
+
+
+            localStorage.setItem(
+                "phone",
+                phone
+            );
+
+
+            localStorage.setItem(
+                "studentId",
+                studentId
+            );
+
+
+            localStorage.setItem(
+                "linkedin",
+                linkedin
+            );
+
+
+            localStorage.setItem(
+                "github",
+                github
+            );
+
+
+            localStorage.setItem(
+                "graduationYear",
+                graduationYear
+            );
+
+
+            localStorage.setItem(
+                "profileCreated",
+                "true"
+            );
+
+
+            if (resume) {
+
+                localStorage.setItem(
+                    "resumeName",
+                    resume.name
+                );
+
+            }
+
+
+
+            /* ================================
+               SUCCESS
+            ================================= */
+
+            alert(
+                "✅ All credentials validated successfully!"
+            );
+
+
+            window.location.href =
+                "home.html";
+
+        }
+
+
+
+        /* ================================
+           CREDENTIAL STATUS
+        ================================= */
+
+        function showCredentialStatus(
+            elementId,
+            message,
+            valid
+        ) {
+
+            const element =
+                document.getElementById(elementId);
+
+
+            element.innerText =
+                message;
+
+
+            if (valid) {
+
+                element.className =
+                    "credential-status valid";
+
+            }
+            else {
+
+                element.className =
+                    "credential-status invalid";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CareerTwin AI Dashboard</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+<div class="logo">
+CareerTwin AI
+</div>
+
+<div class="nav-links">
+
+<a href="home.html">Home</a>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="skill-gap.html">Skill Gap</a>
+
+<a href="placement-readiness.html">Readiness</a>
+
+<a href="roadmap.html">Roadmap</a>
+
+<a href="projects.html">Projects</a>
+<a href="paid_courses.html">Courses</a>
+
+<a href="linkedin_opp.html">Opportunities</a>
+
+<a href="chatbot.html">AI Mentor</a>
+<button class="profile-btn" id="profileBtn">
+    ⓘ Profile
+</button>
+
+</div>
+
+</nav>
+<div class="blob"></div>
+
+<nav class="navbar">
+
+<!-- <div class="logo">
+CareerTwin AI
+</div>
+
+<div class="nav-links">
+<a href="#">Dashboard</a>
+<a href="#">Roadmap</a>
+<a href="#">Projects</a>
+<a href="#">Chatbot</a>
+</div> -->
+
+</nav>
+
+<div class="dashboard-container">
+
+<div class="welcome-card">
+
+<h1>Welcome <span id="userName">User</span> 👋</h1>
+<p>
+Target Role: AI Engineer
+</p>
+
+</div>
+
+<!-- <div class="cards">
+
+<div class="metric-card">
+<h3>Placement Readiness</h3>
+<h2>74%</h2>
+</div>
+
+<div class="metric-card">
+<h3>Skill Match</h3>
+<h2>68%</h2>
+</div>
+
+<div class="metric-card">
+<h3>Projects Suggested</h3>
+<h2>5</h2>
+</div>
+
+<div class="metric-card">
+<h3>Roadmap Progress</h3>
+<h2>35%</h2>
+</div>
+
+</div> -->
+<div class="cards">
+
+<a href="paid_courses.html" class="feature-card">
+
+    <h3>🎓 Paid Courses</h3>
+
+    <p>
+        Explore premium courses recommended for your career growth.
+    </p>
+
+    <span>Explore Courses →</span>
+
+</a>
+<a href="linkedin_opp.html" class="feature-card">
+
+    <h3>💼 LinkedIn Opportunities</h3>
+
+    <p>
+        Find jobs and internships related to your target role and skills.
+    </p>
+
+    <span>Find Opportunities →</span>
+
+</a>
+
+<a href="skill-gap.html" class="feature-card">
+
+<h3>🎯 Skill Gap Analysis</h3>
+
+<p>
+Identify missing industry skills and get AI recommendations.
+</p>
+
+<span>Open →</span>
+
+</a>
+
+<a href="placement-readiness.html" class="feature-card">
+
+<h3>🚀 Placement Readiness</h3>
+
+<p>
+View employability score and placement readiness.
+</p>
+
+<span>Open →</span>
+
+</a>
+
+<a href="roadmap.html" class="feature-card">
+
+<h3>🗺️ Career Roadmap</h3>
+
+<p>
+Get a personalized learning roadmap.
+</p>
+
+<span>Open →</span>
+
+</a>
+
+<a href="projects.html" class="feature-card">
+
+<h3>💼 AI Project Mentor</h3>
+
+<p>
+Explore industry-relevant projects.
+</p>
+
+<span>Open →</span>
+
+</a>
+
+<a href="chatbot.html" class="feature-card">
+
+<h3>🤖 AI Career Mentor</h3>
+
+<p>
+Chat with your AI career guide.
+</p>
+
+<span>Open →</span>
+
+</a>
+
+<a href="resume-analysis.html" class="feature-card">
+
+<h3>📄 Resume Analysis</h3>
+
+<p>
+Analyze resume and detect skills.
+</p>
+
+<span>Open →</span>
+
+</a>
+
+</div>
+
+<div class="chart-card">
+
+<h2>Skill Radar</h2>
+
+<canvas id="skillChart"></canvas>
+
+</div>
+
+<div class="skills-section">
+
+<div class="skills-card">
+
+<h2>Current Skills</h2>
+
+<div class="skill-list">
+
+<span class="skill">Python</span>
+<span class="skill">SQL</span>
+<span class="skill">Machine Learning</span>
+
+</div>
+
+</div>
+
+<div class="skills-card">
+
+<h2>Missing Skills</h2>
+
+<div class="skill-list">
+
+<span class="missing">Docker</span>
+<span class="missing">AWS</span>
+<span class="missing">Deep Learning</span>
+<span class="missing">LLMs</span>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="recommendations">
+
+<h2>AI Recommendations</h2>
+
+<ul>
+
+<li>Learn Docker Fundamentals</li>
+
+<li>Build one deployment project</li>
+
+<li>Learn AWS Cloud Basics</li>
+
+<li>Start Deep Learning specialization</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<script src="js/dashboard.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CareerTwin AI Login</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+        .role-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .role-btn {
+            border: none;
+            padding: 13px 10px;
+            border-radius: 10px;
+            color: white;
+            font-family: Poppins, sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .role-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .student-btn {
+            background: #2563eb;
+        }
+
+        .faculty-btn {
+            background: #7c3aed;
+        }
+
+        .institution-btn {
+            background: #059669;
+        }
+
+        .industry-btn {
+            background: #ea580c;
+        }
+
+        .selected-role {
+            margin-top: 12px;
+            font-size: 13px;
+            color: #555;
+            text-align: center;
+        }
+
+        .demo-note {
+            margin-top: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="blob"></div>
+
+    <div class="login-container">
+
+        <div class="login-card">
+
+            <h1>CareerTwin AI</h1>
+
+            <p>Your Personal AI Career Mentor</p>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Email Address"
+                required
+            >
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                required
+            >
+
+            <!-- Role Selection -->
+            <div class="role-buttons">
+
+                <button
+                    type="button"
+                    id="student"
+                    class="role-btn student-btn"
+                    onclick="selectRole('student')">
+                    🎓 Student
+                </button>
+
+                <button
+                    type="button"
+                    id="faculty"
+                    class="role-btn faculty-btn"
+                    onclick="selectRole('faculty')">
+                    👨‍🏫 Faculty
+                </button>
+
+                <button
+                    type="button"
+                    id="institution"
+                    class="role-btn institution-btn"
+                    onclick="selectRole('institution')">
+                    🏫 Institution
+                </button>
+
+                <button
+                    type="button"
+                    id="industry"
+                    class="role-btn industry-btn"
+                    onclick="selectRole('industry')">
+                    🏢 Industry
+                </button>
+
+            </div>
+
+            <div class="selected-role" id="selectedRole">
+                Please select your role
+            </div>
+
+            <!-- Login -->
+            <button type="button" onclick="login()">
+                Login
+            </button>
+
+            <button type="button" class="google-btn">
+                Continue with Google
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- External JavaScript -->
+    <!--<script src="js/login.js"></script>-->
+
+<script>
+
+    let selectedRole = "";
+
+    function selectRole(role) {
+        selectedRole = role;
+
+        document.getElementById("student").classList.remove("selected");
+        document.getElementById("faculty").classList.remove("selected");
+        document.getElementById("institution").classList.remove("selected");
+        document.getElementById("industry").classList.remove("selected");
+
+        document.getElementById(role).classList.add("selected");
+
+        if (role === "student") {
+            document.getElementById("selectedRole").innerText =
+                "Selected Role: 🎓 Student";
+        }
+        else if (role === "faculty") {
+            document.getElementById("selectedRole").innerText =
+                "Selected Role: 👨‍🏫 Faculty";
+        }
+        else if (role === "institution") {
+            document.getElementById("selectedRole").innerText =
+                "Selected Role: 🏫 Institution";
+        }
+        else if (role === "industry") {
+            document.getElementById("selectedRole").innerText =
+                "Selected Role: 🏢 Industry";
+        }
+    }
+
+
+function login() {
+
+    // Get email and password
+    const email = document.getElementById("email").value.trim();
+    const password = document.getElementById("password").value.trim();
+
+
+    // Check email
+    if (email === "") {
+        alert("Please enter your email address.");
+        document.getElementById("email").focus();
+        return;
+    }
+
+
+    // Check password
+    if (password === "") {
+        alert("Please enter your password.");
+        document.getElementById("password").focus();
+        return;
+    }
+
+
+    // Check role
+    if (selectedRole === "") {
+        alert("Please select a user role.");
+        return;
+    }
+
+
+    // Open selected page
+    if (selectedRole === "student") {
+        window.location.href = "./profile-setup.html";
+    }
+
+    else if (selectedRole === "faculty") {
+        window.location.href = "./faculty.html";
+    }
+
+    else if (selectedRole === "institution") {
+        window.location.href = "./institution.html";
+    }
+
+    else if (selectedRole === "industry") {
+        window.location.href = "./industry.html";
+    }
+}
+</script>
+</body>
+</html>
+
+

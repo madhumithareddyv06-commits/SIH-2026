@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Skill Gap Analysis</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<nav class="navbar">
+
+<div class="logo">
+CareerTwin AI
+</div>
+
+<div class="nav-links">
+
+<a href="home.html">Home</a>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="skill-gap.html">Skill Gap</a>
+
+<a href="placement-readiness.html">Readiness</a>
+
+<a href="roadmap.html">Roadmap</a>
+
+<a href="projects.html">Projects</a>
+<a href="paid_courses.html">Paid Courses</a> 
+<a href="linkedin_opp.html">LinkedIn Opportunities</a>
+<a href="chatbot.html">AI Mentor</a>
+<button class="profile-btn" id="profileBtn">
+    ⓘ Profile
+</button>
+
+</div>
+
+</nav>
+<div class="blob"></div>
+
+<nav class="navbar">
+
+<!-- <div class="logo">
+CareerTwin AI
+</div>
+
+<div class="nav-links">
+<a href="dashboard.html">Dashboard</a>
+<a href="skill-gap.html">Skill Gap</a>
+<a href="#">Roadmap</a>
+<a href="#">Projects</a>
+</div> -->
+
+</nav>
+
+<main>
+
+    <div class="skill-gap-container">
+
+        <div class="page-header">
+
+            <h1>Skill Gap Analysis</h1>
+
+            <p>
+                Target Role:
+                <strong id="targetRole">Loading...</strong>
+            </p>
+
+        </div>
+
+
+        <!-- MATCH SCORE -->
+
+        <div class="score-card">
+
+            <h2>Industry Match Score</h2>
+
+            <h1 id="matchScore">0%</h1>
+
+            <div class="progress-bar">
+
+                <div
+                    class="progress-fill"
+                    id="progressFill">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CURRENT + MISSING SKILLS -->
+
+        <div class="skills-grid">
+
+            <div class="glass-card">
+
+                <h2>Current Skills ✅</h2>
+
+                <div
+                    class="skill-list"
+                    id="currentSkills">
+                </div>
+
+            </div>
+
+
+            <div class="glass-card">
+
+                <h2>Skill Gaps ❌</h2>
+
+                <div
+                    class="skill-list"
+                    id="missingSkills">
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DETAILED ANALYSIS -->
+
+        <div class="glass-card skill-analysis">
+
+            <h2>Skill Analysis</h2>
+
+            <div id="skillAnalysis"></div>
+
+        </div>
+
+
+        <!-- RECOMMENDATIONS -->
+
+        <div class="recommendation-card">
+
+            <h2>AI Recommendations 🤖</h2>
+
+            <ul id="recommendations"></ul>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script src="skill-gap.js"></script>
+
+</body>
+
+</html>
